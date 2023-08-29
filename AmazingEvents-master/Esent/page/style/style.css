@@ -1,0 +1,117 @@
+*{
+     /* outline: 1px solid red;  */
+    padding: 0;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    /* box-sizing: border-box; */
+}
+
+body{
+    background-color: rgba(0, 0, 0, 0.801);
+}
+
+.boton{
+    color: grey;
+    font-size: 30px;
+    display: flex;
+    gap: 30px;
+    padding-top: 30px; 
+}
+
+.nav-item{
+    font-size: 35px;
+}
+
+.redes{
+    display: flex;
+    list-style: none; 
+    gap: 1rem;
+    
+}
+
+.navbar-nav{
+    gap: 2rem;
+}
+
+.form-registro{
+  width: 400px;
+  background-color: darkcyan;
+  padding: 30px;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 4px;
+  box-shadow: 7px 13px 37px #000;
+}
+
+.controls{
+    width: 100%;
+    background-color: darkcyan;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 2px solid;
+}
+
+.botons{
+    width: 100%;
+    padding: 12px;
+    background-color: darkslategray;
+    color: aqua;
+    font-size: 20px;
+    border: 1px solid;
+}
+
+.titulo {
+    font-size: 23px;
+
+}
+
+.th,td,tr { 
+    
+    background-color: rgb(43, 43, 49);    
+    text-align: center;
+    font-size: 25px;
+    border: 2px solid white;
+    border-collapse: collapse;
+    padding: 15px;
+    color:rgb(138, 243, 243);
+}
+
+.contenedor{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+#corusel{
+    width: 500px;
+    height: 300px;
+}
+
+.carousel-inner{
+    height: 40rem;
+}
+
+.footer{
+    color: aqua;
+    margin-right: 1rem;
+}
+
+.redescontenedor{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+}
+
+.price{
+    
+}
+  
+#contenido{
+    width: 80%;
+    margin: 5rem auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap 2rem;
+}
