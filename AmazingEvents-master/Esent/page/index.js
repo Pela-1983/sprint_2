@@ -1,40 +1,87 @@
 
 
+const contenedor = document.getElementById('contenido')
 
- //Fecha Actual del archivo data
-console.log("Fecha Actual: " + data.currentDate);
+const contenedorEventos = document.getElementById('cbEventos')
 
-    //Lee los elementos del array de data
-   for (let x in data.events){
+const buscador = document.getElementById('buscador')
 
-    //Exhibe eventos del futuro
-    if (data.currentDate < data.events[x].date){
-        console.log(x);
-        console.log("Title: " + data.events[x].name);
-        console.log("Description: " + data.events[x].description);
-        console.log("Date: " + data.events[x].date);
-        console.log("Price: $" + data.events[x].price);
-        console.log("--------------------------------------------");
+
+pintarTarjetas(data.events, contenedor)
+
+let eventos = extraerEventos(data.events)
+
+pintarSwitches(eventos, contenedorEventos, "eventos")
+
+contenedorEventos.addEventListener("change",filtroDuplo)
+
+buscador.addEventListener("input",filtroDuplo)
+ 
+
+//FUNCIONES
+
+function pintarTarjetas(arreglo, contenedor){
+    if(arreglo.length == 0){
+        contenedor.innerHTML = `<h2>NO HAY NADA CAMPEON</>`
+        return
     }
-} 
+    let html = ""
+    arreglo.forEach(element => {
+        html += crearTarjeta(element)
+    });
+    contenedor.innerHTML = html
+}
 
 
-let contenido = document.querySelector("#contenido")
+function crearTarjeta(elemento) {
+    return `  <div class="card" style="width: 18rem;">
+                <img src="${elemento.image}" class="card-img-top" alt="...">
+                <h5 class="card-title">${elemento.name}</h5>
+                <p class="card-text">${elemento.description}</p>
+                <a href="./details.html?id=${elemento._id}" class="btn btn-primary">Details</a>
+                <p>$ ${elemento.price}</p>
+            </div> `
 
-for (let x in data.events){
+}
 
-    const card = document.createElement("div")
-    card.classList="card"
-    card.style.width="15rem"
-    card.innerHTML = `<img src="${data.events[x].image}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">${data.events[x].name}</h5>
-                     <p class="card-text">${data.events[x].description}</p>
-                     <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                    <div>
-                 <p>$ ${ data.events[x].price}</p>
-                </div>`
+function extraerEventos(arreglo){
+    return arreglo.map(elemento => elemento.category).filter((color,indice, colores) => colores.indexOf(color) === indice)
+}
 
-   contenido.appendChild(card)
+function pintarSwitches(arregloDeDatos, contenedor, tipo){
+    let html = ''
+    arregloDeDatos.forEach(elemento => {
+        html += crearSwitch(elemento, tipo)
+    })
+    contenedor.innerHTML = html
+}
+
+function crearSwitch(dato,tipo){
+    return `<div class="form-check form-switch col">
+                <input class="form-check-input ${tipo}" type="checkbox" role="switch" id="${dato}" value="${dato}">
+                <label class="form-check-label" for="${dato}">${dato}</label>
+            </div>`
+}
+
+function filtrarPorTexto(arreglo, texto){
+    let arregloFiltrado = arreglo.filter(elemento => elemento.name.toLowerCase().includes(texto.trim().toLowerCase()) || elemento.description.toLowerCase().includes(texto.trim().toLowerCase()))
+    return arregloFiltrado
+}
+
+function filtrarPorEventos(arreglo){
+    let checkboxes = Array.from(document.getElementsByClassName("form-check-input eventos"))
+    let checkboxesAzules = checkboxes.filter(check => check.checked)
+    if(checkboxesAzules.length == 0){
+        return arreglo
+    }
+    let valores = checkboxesAzules.map(chAz => chAz.value)
+    let arregloFiltrado = arreglo.filter(fruta => valores.includes(fruta.category))
+    return arregloFiltrado
+}
+
+
+function filtroDuplo(){
+    let filtro1 = filtrarPorEventos(data.events)
+    let filtro2 = filtrarPorTexto(filtro1,buscador.value)
+    pintarTarjetas(filtro2, contenedor)
 }

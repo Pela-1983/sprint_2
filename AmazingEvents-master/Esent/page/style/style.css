@@ -3,7 +3,32 @@
     padding: 0;
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
-    /* box-sizing: border-box; */
+    box-sizing: border-box; */ */
+}
+
+@media only screen (min-width:320px) and (max-width:767px){
+    header{
+        flex-direction: column;
+    }
+    
+    
+    h1{
+        font-size: 3rem;
+    } 
+    nav{
+        width: 10rem;
+    }
+    h2{
+        font-size: 2rem;
+    } 
+    section{
+        width: 90%;
+        min-height: 65vh;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width:932px){
+    
 }
 
 body{
@@ -89,7 +114,7 @@ body{
 }
 
 .carousel-inner{
-    height: 40rem;
+    height: 30rem;
 }
 
 .footer{
@@ -110,8 +135,14 @@ body{
   
 #contenido{
     width: 80%;
-    margin: 5rem auto;
+    margin: 2rem auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap 2rem;
+    grid-template-columns: repeat(4, 3fr);
+   
+       
+} 
+
+.chek{
+    color: aliceblue;
 }
+

@@ -17,7 +17,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="row">
+    <div class="row col-md-9">
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
@@ -38,19 +38,14 @@
             </li>
         </ul>
     </div>
-</div>  
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
+
 
 </nav>
 <div class="corusel">
     <div id="carouselExampleFade" class="carousel slide carousel-fade">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="../page/Image/optional_banner_3.jpg" class="d-block w-100" alt="...">
+                <img src="./Image/optional_banner_3.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
                 <img src="./Image/optional_banner_1.jpg" class="d-block w-100" alt="...">
@@ -69,7 +64,7 @@
         </button>
     </div>
 </div>
-    <div>
+   <!--  <div>
         <fieldset class="boton" >
             <input type="checkbox" id="category" value="category">
             <label for="category">category</label>
@@ -83,7 +78,7 @@
             <input type="checkbox" value="category">
             <label for="category">category</label>            
         </fieldset>
-    </div>
+    </div> -->
    
 
     <!-- <div class="row my-5">
@@ -144,8 +139,26 @@
         </div>
       </div> -->
 
-      
-      <div id="contenido"></div>
+        <!-- Checkbox Eventos -->
+        <div class="chek">
+            <h2>Selecciones los eventos deseados</h2>
+            <div id="cbEventos" class="row gap-3 p-3 justify-content-center" >
+                <h2>Aca van los checkbox de los eventos</h2>
+            </div>
+        </div>
+    
+        <!-- Buscador -->
+        <div>
+            <label class="chek">
+                Buscador
+                <input id="buscador" class="form-control" type="text" placeholder="">
+            </label>
+        </div>
+    
+        <!-- Cards -->  
+        <div class="chek">
+            <div id="contenido"></div>
+        </div>  
 
 
       <footer class="redescontenedor">
